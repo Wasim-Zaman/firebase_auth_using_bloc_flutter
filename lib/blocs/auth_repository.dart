@@ -22,6 +22,8 @@ class AuthRepository {
 
   Future<bool> _authenticate(
       String email, String password, String urlSegment) async {
+    print('&&&&&&&&&& $email &&&&&&&&&&');
+    print('&&&&&&&&&& $password &&&&&&&&&&');
     final url =
         'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=AIzaSyDDWgdNsBAS942UIa4ShSw2jBiGju2FJqY';
 
@@ -37,7 +39,7 @@ class AuthRepository {
         ),
       );
       final responseBody = json.decode(response.body);
-      if (responseBody['error'] == null) {
+      if (responseBody['error'] != null) {
         // handle the error.
         print(
             '****** Try Bloc Error: ${responseBody['error']['message']} ******');
