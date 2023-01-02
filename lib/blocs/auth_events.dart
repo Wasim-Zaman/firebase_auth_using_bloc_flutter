@@ -8,11 +8,17 @@ abstract class AuthEvents {}
 
   * NOTE: While adding event, just look into the UI and see what user can do
 */
-class FormValidationEvent extends AuthEvents {
+
+class EmailValidationEvent extends AuthEvents {
   final String email;
+
+  EmailValidationEvent(this.email);
+}
+
+class PasswordValidationEvent extends AuthEvents {
   final String password;
 
-  FormValidationEvent(this.email, this.password);
+  PasswordValidationEvent(this.password);
 }
 
 class FormSavedEvent extends AuthEvents {
